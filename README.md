@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# contact-management
+The Contact Management System is a web application designed to simplify the management of personal and professional contacts. Users can create, update, view, and delete contacts with ease. The app ensures data integrity and consistency with strong backend validations.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Setup Instructions](#setup-instructions)
+- [Database Schema](#database-schema)
+- [Project Description](#project-description)
+- [Technical Decisions](#technical-decisions)
+- [How It Works](#how-it-works)
 
-In the project directory, you can run:
+## Setup Instructions
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js (>=12.x)
+- npm (>=6.x)
+- MongoDB (>=4.4)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Installation
 
-### `npm test`
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/harshithapaidi05/contact-management-system.git
+    cd contact-management-system
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install the server dependencies:
+    ```bash
+    cd server
+    npm install
+    ```
 
-### `npm run build`
+3. Install the client dependencies:
+    ```bash
+    cd client
+    npm install
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Running the Application
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Start the MongoDB server:
+    ```bash
+    mongod
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Start the backend server:
+    ```bash
+    cd server
+    npm start
+    ```
 
-### `npm run eject`
+3. Start the frontend client:
+    ```bash
+    cd client
+    npm start
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. Open the application in your browser:
+    ```plaintext
+    http://localhost:3000
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Database Schema
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Contact Schema
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```json
+{
+  "firstName": "String, required",
+  "lastName": "String, required",
+  "email": "String, required, unique, match: /^\\S+@\\S+\\.\\S+$/",
+  "phoneNumber": "String, required, validate: {validator: /^\\d{10}$/}",
+  "company": "String, required",
+  "jobTitle": "String, required"
+}
