@@ -5,9 +5,6 @@ The Contact Management System is a web application designed to simplify the mana
 
 - [Setup Instructions](#setup-instructions)
 - [Database Schema](#database-schema)
-- [Project Description](#project-description)
-- [Technical Decisions](#technical-decisions)
-- [How It Works](#how-it-works)
 
 ## Setup Instructions
 
@@ -21,8 +18,8 @@ The Contact Management System is a web application designed to simplify the mana
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/harshithapaidi05/contact-management-system.git
-    cd contact-management-system
+    git clone https://github.com/harshithapaidi05/contact-manage.git
+    cd contact-manage
     ```
 
 2. Install the server dependencies:
